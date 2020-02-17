@@ -124,7 +124,7 @@
         <div class="row">
             <div class="col-lg-8 col-md-12">
                 <div class="card">
-                    <div class="card-body" style="height: 450px;">
+                    <div class="card-body">
                         <div class="row">
                             <div class="col-lg-11 col-md-11 col-sm-10 col-xs-8">
                                 <h4 class="card-title" style="margin-left:10px">Line Chart</h4>
@@ -133,13 +133,13 @@
                                 <button id="down-line" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Download Line chart"><i class="fa fa-download"></i></button>
                             </div>
                         </div>
-                        <canvas id="line-chart"></canvas>
+                        <canvas id="line-chart" height="145"></canvas>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-12">
                 <div class="card">
-                    <div class="card-body" style="height: 450px;">
+                    <div class="card-body">
                         <div class="row">
                             <div class="col-lg-10 col-md-11 col-xs-10">
                                 <h4 class="card-title" style="margin-left:10px">Pie Chart</h4>
@@ -149,7 +149,7 @@
                             </div>
                         </div>
 
-                        <canvas id="pie-chart" width="100" height="100"></canvas>
+                        <canvas id="pie-chart" height="330"></canvas>
                     </div>
                 </div>
             </div>
