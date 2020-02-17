@@ -103,7 +103,9 @@
                     "rgba(116, 96, 238,1)",
                     "rgba(255, 60, 166,1)"
                 ],
-                data: [49, 51]
+                data: [<?= $totalPresale; ?>,
+                    <?= $totalWorkorder; ?>
+                ]
             }]
         },
         options: {
