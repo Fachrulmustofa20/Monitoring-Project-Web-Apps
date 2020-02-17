@@ -50,7 +50,7 @@
                                 <h4 class="card-title">Presale And Workorder Table</h4>
                             </div>
                             <div class="col-md-3 col-6">
-                                <button id="down-report" class="btn btn-danger btn-sm ml-5">Download Report <i class="fa fa-download"></i></button>
+                                <a href="<?= base_url('home/download'); ?>"><button id="down-report" class="btn btn-danger btn-sm ml-5" type="submit">Download Report <i class="fa fa-download"></i></button></a>
 
                             </div>
                         </div>
