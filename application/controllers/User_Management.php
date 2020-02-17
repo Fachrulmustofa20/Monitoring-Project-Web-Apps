@@ -7,6 +7,10 @@ class User_Management extends CI_Controller
     {
         parent::__construct();
         $this->load->model('user_model');
+
+        check_login();
+        //cek role admin
+        is_admin();
     }
     public function index()
     {
@@ -14,9 +18,10 @@ class User_Management extends CI_Controller
 
         $data['user'] = $this->db->get_where('user', [
             'email' => $this->session->userdata('email')
-        ])->row_array();
+        ])->row_array(); //user sesuai session
 
         $data['role'] = $this->user_model->get_role();
+        $data['users'] = $this->user_model->get_user(); //mengambil semua user
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -91,7 +96,7 @@ class User_Management extends CI_Controller
         if ($type == 'verify') {
             $this->email->subject('Account Verification');
             $this->email->message('Click this link to verify you account :<br> 
-            <a href="' . base_url() . 'auth/verify?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '"><button>Activate Now</button></a>');
+            <a href="' . base_url() . 'auth/verify?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '"><h3>Activate Now</h3></a>');
         }
 
         if ($this->email->send()) {
@@ -120,7 +125,7 @@ class User_Management extends CI_Controller
 
                     $this->db->delete('user_token', ['email' => $email]);
 
-                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">' . $email . ' has been activated! Please login.</div>');
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">' . $email . ' activated! Please login.</div>');
                     redirect('user_management');
                 } else {
                     $this->db->delete('user', ['email' => $email]);
@@ -135,6 +140,37 @@ class User_Management extends CI_Controller
             }
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Account activation failed! Wrong email.</div>');
+            redirect('user_management');
+        }
+    }
+
+
+    public function edit()
+    {
+        $this->form_validation->set_rules('name', 'Name', 'required|trim');
+        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]', [
+            'min_length' => 'password too short!'
+        ]);
+
+        if ($this->form_validation->run() == false) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Update Users Failed!</div>');
+            redirect('user_management');
+        } else {
+
+            $this->user_model->edit_user();
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Success Edit User!</div>');
+            redirect('user_management');
+        }
+    }
+
+
+    public function delete($id = null)
+    {
+        if (!isset($id)) show_404();
+
+        if ($this->user_model->delete($id)) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Success Delete User</div>');
             redirect('user_management');
         }
     }

@@ -71,9 +71,8 @@
                     <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
                         <a class="dropdown-item" href="<?= base_url('profile'); ?>">
                             <i data-feather="user" class="svg-icon mr-2 ml-1"></i> My Profile</a>
-                        <!--
-                        <a class="dropdown-item" href="setting.php"><i data-feather="settings" class="svg-icon mr-2 ml-1"></i> Account Setting</a>
-                        -->
+                        <a class="dropdown-item" href="<?= base_url('profile/changepassword') ?>"><i data-feather="key" class="svg-icon mr-2 ml-1"></i> Change Password</a>
+
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="<?= base_url('auth/logout'); ?>">
                             <i data-feather="power" class="svg-icon mr-2 ml-1"></i> Logout
