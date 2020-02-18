@@ -32,13 +32,14 @@
         <div class="row ml-auto">
             <div class="col-lg-6">
                 <div class="row">
+
                     <div class="col-1g-8">
                         <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
                             <i class="fa fa-calendar"></i>&nbsp;
                             <span></span> <i class="fa fa-caret-down"></i>
                         </div>
-
                     </div>
+
                 </div>
             </div>
         </div>
@@ -130,7 +131,7 @@
                                 <h4 class="card-title" style="margin-left:10px">Line Chart</h4>
                             </div>
                             <div class="col-lg-1 col-md-1 col-sm-2 col-xs-4">
-                                <button id="down-line" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Download Line chart"><i class="fa fa-download"></i></button>
+                                <button type="button" id="downloadline" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Download Line chart"><i class="fa fa-download"></i></button>
                             </div>
                         </div>
                         <canvas id="line-chart" height="145"></canvas>
@@ -145,7 +146,7 @@
                                 <h4 class="card-title" style="margin-left:10px">Pie Chart</h4>
                             </div>
                             <div class="col-lg-2 col-md-1 col-xs-2">
-                                <button class="btn btn-primary btn-sm" id="down-pie" data-toggle="tooltip" data-placement="bottom" title="Download Pie chart"><i class="fa fa-download"></i></button>
+                                <button class="btn btn-primary btn-sm" id="downloadpie" data-toggle="tooltip" data-placement="bottom" title="Download Pie chart"><i class="fa fa-download"></i></button>
                             </div>
                         </div>
 

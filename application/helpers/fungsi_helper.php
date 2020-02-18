@@ -14,6 +14,7 @@ function is_admin()
     $ci = &get_instance();
     $role = $ci->session->userdata('role_id');
     if ($role != '1') {
-        redirect('auth/blocked');
+        $ci->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Access Blocked!</div>');
+        redirect('profile');
     }
 }

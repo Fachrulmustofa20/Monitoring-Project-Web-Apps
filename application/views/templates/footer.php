@@ -59,6 +59,7 @@
 <!-- Chart JS -->
 <script src="<?= base_url('assets/'); ?>dist/js/pages/chartjs/chartjs.init.js"></script>
 <script src="<?= base_url('assets/'); ?>vendor/libs/chart.js/dist/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
 <script text="javascript">
     new Chart(document.getElementById("line-chart"), {
         type: 'line',
@@ -90,6 +91,14 @@
             }
         }
     });
+
+    downloadline.addEventListener("click", function() {
+        var imgData = document.getElementById('line-chart').toDataURL("image/jpeg", 1.0);
+        var pdf = new jsPDF();
+
+        pdf.addImage(imgData, 'JPG', 0, 0);
+        pdf.save("download.pdf");
+    }, false);
 </script>
 
 <script text="javascript">
@@ -115,6 +124,15 @@
             }
         }
     });
+
+
+    downloadpie.addEventListener("click", function() {
+        var imgData = document.getElementById('pie-chart').toDataURL("image/jpeg", 1.0);
+        var pdf = new jsPDF();
+
+        pdf.addImage(imgData, 'JPG', 0, 0);
+        pdf.save("download.pdf");
+    }, false);
 </script>
 
 <script type="text/javascript">
@@ -185,6 +203,7 @@
     }
 </script>
 <!--End of Modals-->
+
 
 </body>
 

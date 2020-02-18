@@ -12,7 +12,7 @@
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb m-0 p-0">
-                            <li class="breadcrumb-item"><a href="index.php" class="text-muted">Menu</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url('home'); ?>" class="text-muted">Menu</a></li>
                             <li class="breadcrumb-item text-muted active" aria-current="page">User Management</li>
                         </ol>
                     </nav>
