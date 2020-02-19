@@ -90,7 +90,7 @@ class User_Management extends CI_Controller
         $this->load->library('email', $config);
         $this->email->initialize($config);
 
-        $this->email->from('developerapik@gmail.com', 'Fachrul Mustofa');
+        $this->email->from('developerapik@gmail.com', 'PSD Desnet');
         $this->email->to($this->input->post('email'));
 
         if ($type == 'verify') {

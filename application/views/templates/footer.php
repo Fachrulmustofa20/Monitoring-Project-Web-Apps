@@ -59,6 +59,7 @@
 <!-- Chart JS -->
 <script src="<?= base_url('assets/'); ?>dist/js/pages/chartjs/chartjs.init.js"></script>
 <script src="<?= base_url('assets/'); ?>vendor/libs/chart.js/dist/Chart.min.js"></script>
+<!-- downlad gambar pdf -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
 <script text="javascript">
     new Chart(document.getElementById("line-chart"), {
@@ -97,7 +98,7 @@
         var pdf = new jsPDF();
 
         pdf.addImage(imgData, 'JPG', 0, 0);
-        pdf.save("download.pdf");
+        pdf.save("download-line.pdf");
     }, false);
 </script>
 
@@ -131,7 +132,7 @@
         var pdf = new jsPDF();
 
         pdf.addImage(imgData, 'JPG', 0, 0);
-        pdf.save("download.pdf");
+        pdf.save("download-pie.pdf");
     }, false);
 </script>
 
