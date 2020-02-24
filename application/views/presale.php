@@ -31,18 +31,22 @@
         <!-- Content Page -->
         <!-- multi-column ordering -->
         <div class="row ml-auto">
-            <div class="col-lg-6">
+            <div class="col-lg-8">
                 <div class="row">
-                    <div class="col-1g-8">
-                        <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
-                            <i class="fa fa-calendar"></i>&nbsp;
-                            <span></span> <i class="fa fa-caret-down"></i>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <input class="form-control" type="text" id="reportrange" name="date">
                         </div>
-
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <button class="btn btn-primary">Search</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
 
         <!-- Start First Cards -->
         <!-- *************************************************************** -->
@@ -95,22 +99,6 @@
                     </div>
                 </div>
             </div>
-            <div class="card border-right">
-                <div class="card-body">
-                    <div class="d-flex d-lg-flex d-md-block align-items-center">
-                        <div>
-                            <div class="d-inline-flex align-items-center">
-                                <h2 class="text-primary mb-1 font-weight-medium"><?= $totalUser; ?></h2>
-
-                            </div>
-                            <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Total Users</h6>
-                        </div>
-                        <div class="ml-auto mt-md-3 mt-lg-0">
-                            <span class="opacity-7 text-muted"><i data-feather="user"></i></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
         </div>
         <!-- *************************************************************** -->
@@ -142,7 +130,7 @@
                                     ?>
                                         <tr>
                                             <td><?= $no; ?></td>
-                                            <td><?= $p['date'] ?></td>
+                                            <td><?= $p['created_at'] ?></td>
                                             <td><?= $p['name']; ?></td>
                                             <td><?= $p['analyst']; ?></td>
                                             <?php if ($user['role_id'] == 1) { ?>

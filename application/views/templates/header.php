@@ -19,6 +19,8 @@
     <!--Date Picker-->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" crossorigin="anonymous">
+
     <!-- Custom CSS -->
     <link href="<?= base_url('assets/'); ?>dist/css/style.min.css" rel="stylesheet">
     <link href="<?= base_url('assets/'); ?>vendor/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">

@@ -19,7 +19,10 @@ class Home extends CI_Controller
         $data['totalAll'] = $this->project->totalAll();
         $data['totalPresale'] = $this->project->totalPresale();
         $data['totalWorkorder'] = $this->project->totalWorkorder();
-        $data['totalUser'] = $this->project->totalUser();
+
+        $data['get_date'] = $this->project->get_date();
+        $data['total_bydate'] = $this->project->total_bydate();
+
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -29,10 +32,12 @@ class Home extends CI_Controller
         //$this->load->view('dashboard');
     }
 
-    public function presale($id = null)
+    public function presale()
     {
+
         $data['title'] = 'Presale';
         $data['presale'] = $this->project->get_presale();
+
         $data['user'] = $this->db->get_where('user', [
             'email' => $this->session->userdata('email')
         ])->row_array();
@@ -40,7 +45,6 @@ class Home extends CI_Controller
         $data['totalAll'] = $this->project->totalAll();
         $data['totalPresale'] = $this->project->totalPresale();
         $data['totalWorkorder'] = $this->project->totalWorkorder();
-        $data['totalUser'] = $this->project->totalUser();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -48,7 +52,7 @@ class Home extends CI_Controller
         $this->load->view('presale', $data);
         $this->load->view('templates/footer');
     }
-    public function workorder($id = null)
+    public function workorder()
     {
         $data['title'] = 'Workorder';
 
@@ -60,7 +64,6 @@ class Home extends CI_Controller
         $data['totalAll'] = $this->project->totalAll();
         $data['totalPresale'] = $this->project->totalPresale();
         $data['totalWorkorder'] = $this->project->totalWorkorder();
-        $data['totalUser'] = $this->project->totalUser();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -92,23 +95,25 @@ class Home extends CI_Controller
         require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
 
         $object = new PHPExcel();
-        $object->getProperties()->setCreator("BAMS");
-        $object->getProperties()->setLastModifiedBy("BAMS");
+        $object->getProperties()->setCreator("PSD DESNET");
+        $object->getProperties()->setLastModifiedBy("PSD DESNET");
         $object->getProperties()->setTitle("BAMS");
 
         $object->setActiveSheetIndex(0);
-        $object->getActiveSheet()->setCellValue('A1', 'NO');
-        $object->getActiveSheet()->setCellValue('B1', 'DATE');
-        $object->getActiveSheet()->setCellValue('C1', 'NAME');
-        $object->getActiveSheet()->setCellValue('D1', 'ANALYST');
-        $object->getActiveSheet()->setCellValue('E1', 'CATEGORY');
+        $object->getActiveSheet()->mergeCells('A1:F1');
+        $object->getActiveSheet()->setCellValue('A1', 'LAPORAN PRESALE DAN WORKORDER');
+        $object->getActiveSheet()->setCellValue('A3', 'NO');
+        $object->getActiveSheet()->setCellValue('B3', 'DATE');
+        $object->getActiveSheet()->setCellValue('C3', 'NAME');
+        $object->getActiveSheet()->setCellValue('D3', 'ANALYST');
+        $object->getActiveSheet()->setCellValue('E3', 'CATEGORY');
 
-        $baris = 2;
+        $baris = 4;
         $no = 1;
 
         foreach ($data['tampil'] as $row) {
             $object->getActiveSheet()->setCellValue('A' . $baris, $no);
-            $object->getActiveSheet()->setCellValue('B' . $baris, $row['date']);
+            $object->getActiveSheet()->setCellValue('B' . $baris, $row['created_at']);
             $object->getActiveSheet()->setCellValue('C' . $baris, $row['name']);
             $object->getActiveSheet()->setCellValue('D' . $baris, $row['analyst']);
             $object->getActiveSheet()->setCellValue('E' . $baris, $row['cat']);

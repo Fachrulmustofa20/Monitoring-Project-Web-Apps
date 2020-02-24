@@ -6,6 +6,7 @@ class Project_Model extends CI_Model
         $this->db->select('tb_project.*,tb_category.name as cat');
         $this->db->from('tb_project');
         $this->db->join('tb_category', 'tb_category.id_category = tb_project.category');
+        $this->db->order_by('id_project', 'ASC');
         if ($id != null) {
             $this->db->where('id_project', $id);
         }
@@ -18,6 +19,7 @@ class Project_Model extends CI_Model
         $this->db->from('tb_project');
         $this->db->join('tb_category', 'tb_category.id_category = tb_project.category');
         $this->db->where('category', 1);
+        $this->db->order_by('id_project', 'ASC');
         $query = $this->db->get();
         $data = $query->result_array();
         return $data;
@@ -28,6 +30,7 @@ class Project_Model extends CI_Model
         $this->db->from('tb_project');
         $this->db->join('tb_category', 'tb_category.id_category = tb_project.category');
         $this->db->where('category', 2);
+        $this->db->order_by('id_project', 'ASC');
         $query = $this->db->get();
         $data = $query->result_array();
         return $data;
@@ -52,11 +55,17 @@ class Project_Model extends CI_Model
         $query = $this->db->get()->num_rows();
         return $query;
     }
-    public function totalUser()
+    public function total_bydate()
     {
-        $this->db->where('is_active', 1);
-        $this->db->from('user');
-        $query = $this->db->get()->num_rows();
-        return $query;
+        $query = $this->db->query("SELECT sum(case when category = '1' then 1 else 0 end) AS presale,
+        sum(case when category = '2' then 1 else 0 end) AS workorder
+        FROM tb_project
+        GROUP BY created_at");
+        return $query->result_array();
+    }
+    public function get_date()
+    {
+        $query = $this->db->query("SELECT created_at FROM tb_project GROUP BY created_at ORDER BY created_at ASC");
+        return $query->result_array();
     }
 }

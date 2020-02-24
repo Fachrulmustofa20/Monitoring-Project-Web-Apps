@@ -76,7 +76,7 @@
                                     ?>
                                         <tr>
                                             <td><?= $no; ?></td>
-                                            <td><?= $t['date']; ?></td>
+                                            <td><?= $t['created_at']; ?></td>
                                             <td><?= $t['name']; ?></td>
                                             <td><?= $t['analyst']; ?></td>
                                             <td><?= $t['cat']; ?></td>

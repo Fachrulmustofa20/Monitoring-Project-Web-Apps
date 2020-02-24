@@ -96,7 +96,7 @@ class User_Management extends CI_Controller
         if ($type == 'verify') {
             $this->email->subject('Account Verification');
             $this->email->message('Click this link to verify you account :<br> 
-            <a href="' . base_url() . 'auth/verify?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '"><h3>Activate Now</h3></a>');
+            <a href="' . base_url() . 'user_management/verify?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '"><h3>Activate Now</h3></a>');
         }
 
         if ($this->email->send()) {

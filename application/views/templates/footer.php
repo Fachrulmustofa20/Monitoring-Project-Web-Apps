@@ -65,7 +65,11 @@
     new Chart(document.getElementById("line-chart"), {
         type: 'line',
         data: {
-            labels: ["Jan", "Feb", "March", "Apr", "May", "June", "July", "August", "Sept", "Okt", "Nov", "Des"],
+            labels: [<?php
+                        foreach ($get_date as $gt) {
+                            echo '"' . $gt['created_at'] . '",';
+                        }
+                        ?>],
             datasets: [{
                 label: "Presale",
                 fill: true,
@@ -73,7 +77,11 @@
                 borderColor: "rgba(116, 96, 238,1)",
                 pointBorderColor: "#fff",
                 pointBackgroundColor: "rgba(116, 96, 238,1)",
-                data: [3, 5, 6, 7, 8, 4, 3, 7, 5, 1, 4, 2]
+                data: [<?php
+                        foreach ($total_bydate as $td) {
+                            echo '"' . $td['presale'] . '",';
+                        }
+                        ?>]
             }, {
                 label: "Workorder",
                 fill: true,
@@ -82,7 +90,11 @@
                 pointBorderColor: "#fff",
                 pointBackgroundColor: "rgba(255, 60, 166,1)",
                 pointBorderColor: "#fff",
-                data: [2, 4, 6, 7, 5, 4, 3, 5, 1, 5, 3, 8]
+                data: [<?php
+                        foreach ($total_bydate as $td) {
+                            echo '"' . $td['workorder'] . '",';
+                        }
+                        ?>]
             }]
         },
         options: {
@@ -182,20 +194,6 @@
     document.getElementById('date').innerHTML = thisDay + ', ' + day + ' ' + months[month] + ' ' + year;
 </script>
 
-<!--Modals-->
-<script>
-    //add user
-    $('#add_users').on('show.bs.modal', function(event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        var recipient = button.data('whatever') // Extract info from data-* attributes
-        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-        var modal = $(this)
-        modal.find('.modal-title').text('New message to ' + recipient)
-        modal.find('.modal-body input').val(recipient)
-    })
-</script>
-
 <script>
     //Delete dg Modal
     function deleteConfirm(url) {
@@ -203,7 +201,6 @@
         $('#deleteModal').modal();
     }
 </script>
-<!--End of Modals-->
 
 
 </body>
