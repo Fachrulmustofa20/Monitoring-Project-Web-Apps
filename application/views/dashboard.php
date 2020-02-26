@@ -89,7 +89,7 @@
                                 <h2 class="text-primary mb-1 font-weight-medium"><?= $totalAll; ?></h2>
 
                             </div>
-                            <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Total All</h6>
+                            <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Total</h6>
                         </div>
                         <div class="ml-auto mt-md-3 mt-lg-0">
                             <span class="opacity-7 text-muted"><i data-feather="list"></i></span>

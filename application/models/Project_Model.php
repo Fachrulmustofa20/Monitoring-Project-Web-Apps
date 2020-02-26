@@ -60,7 +60,7 @@ class Project_Model extends CI_Model
         $query = $this->db->query("SELECT sum(case when category = '1' then 1 else 0 end) AS presale,
         sum(case when category = '2' then 1 else 0 end) AS workorder
         FROM tb_project
-        GROUP BY created_at");
+        GROUP BY created_at ORDER BY created_at ASC");
         return $query->result_array();
     }
     public function get_date()
