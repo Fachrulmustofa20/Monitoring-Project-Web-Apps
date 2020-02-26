@@ -68,4 +68,18 @@ class Project_Model extends CI_Model
         $query = $this->db->query("SELECT created_at FROM tb_project GROUP BY created_at ORDER BY created_at ASC");
         return $query->result_array();
     }
+
+    public function cari()
+    {
+        $keyword = $this->input->post('keyword');
+        $this->db->select('tb_project.*,tb_category.name as cat');
+        $this->db->from('tb_project');
+        $this->db->join('tb_category', 'tb_category.id_category = tb_project.category');
+
+        $this->db->order_by('id_project', 'ASC');
+        $this->db->like('tb_category.name', $keyword);
+        $query = $this->db->get();
+        $data = $query;
+        return $data;
+    }
 }

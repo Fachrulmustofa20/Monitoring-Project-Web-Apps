@@ -51,6 +51,18 @@
                         <div class="row mb-3">
                             <div class="col-md-9 col-6">
                                 <h4 class="card-title">Presale And Workorder Table</h4>
+                                <!--Dropdown category-->
+                                <form action="" method="POST">
+                                    <div class="form-group">
+                                        <select name="keyword" id="keyword" class="form-control-sm">
+                                            <option value="0">Category</option>
+                                            <option value="Presale">Presale</option>
+                                            <option value="Workorder">Workorder</option>
+                                        </select>
+                                        <Button type="submit" class="btn btn-primary btn-sm">Cari</Button>
+                                    </div>
+                                </form>
+                                <!--End dropdown category-->
                             </div>
                             <div class="col-md-3 col-6">
                                 <a href="<?= base_url('home/download'); ?>"><button id="down-report" class="btn btn-danger btn-sm ml-5" type="submit">Download Report <i class="fa fa-download"></i></button></a>

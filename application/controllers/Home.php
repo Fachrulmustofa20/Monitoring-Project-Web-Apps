@@ -13,6 +13,10 @@ class Home extends CI_Controller
     {
         $data['title'] = 'Dashboard';
         $data['tampil'] = $this->project->getAll($id)->result_array();
+        if ($this->input->post('keyword')) {
+
+            $data['tampil'] = $this->project->cari()->result_array();
+        }
         $data['user'] = $this->db->get_where('user', [
             'email' => $this->session->userdata('email')
         ])->row_array();
@@ -76,6 +80,11 @@ class Home extends CI_Controller
         $data['title'] = 'Report';
 
         $data['tampil'] = $this->project->getAll($id)->result_array();
+        if ($this->input->post('keyword')) {
+
+            $data['tampil'] = $this->project->cari()->result_array();
+        }
+
         $data['user'] = $this->db->get_where('user', [
             'email' => $this->session->userdata('email')
         ])->row_array();

@@ -150,6 +150,20 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title mb-4">Presale And Workorder Table</h4>
+
+                        <!--Dropdown category-->
+                        <form action="" method="POST">
+                            <div class="form-group">
+                                <select name="keyword" id="keyword" class="form-control-sm">
+                                    <option value="0">Category</option>
+                                    <option value="Presale">Presale</option>
+                                    <option value="Workorder">Workorder</option>
+                                </select>
+                                <Button type="submit" class="btn btn-primary btn-sm">Cari</Button>
+                            </div>
+                        </form>
+                        <!--End dropdown category-->
+
                         <div class="table-responsive">
                             <table id="multi_col_order" class="table table-striped table-bordered display no-wrap" style="width:100%">
                                 <thead class="bg-primary text-white">
