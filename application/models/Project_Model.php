@@ -82,4 +82,30 @@ class Project_Model extends CI_Model
         $data = $query;
         return $data;
     }
+    public function tanggal()
+    {
+        $keyword = $this->input->post('tgl');
+        $this->db->select('tb_project.*,tb_category.name as cat');
+        $this->db->from('tb_project');
+        $this->db->join('tb_category', 'tb_category.id_category = tb_project.category');
+
+        $this->db->order_by('id_project', 'ASC');
+        $this->db->where('created_at', $keyword);
+        $query = $this->db->get();
+        $data = $query;
+        return $data;
+    }
+    public function tanggal_presale()
+    {
+        $keyword = $this->input->post('tgl');
+        $grt = ['category' => 1, 'created_at' => $keyword];
+        $this->db->select('tb_project.*,tb_category.name as cat');
+        $this->db->from('tb_project');
+        $this->db->join('tb_category', 'tb_category.id_category = tb_project.category');
+        $this->db->order_by('id_project', 'ASC');
+        $this->db->where($grt);
+        $query = $this->db->get();
+        $data = $query;
+        return $data;
+    }
 }

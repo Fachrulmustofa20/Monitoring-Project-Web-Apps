@@ -29,8 +29,22 @@
     <!-- Container fluid  -->
     <!-- ============================================================== -->
     <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-4">
+
+                <form action="" method="post">
+                    <div class="form-group">
+                        <label>Tanggal</label>
+                        <input type="text" class="form-control-sm" id="tgl" name="tgl">
+                        <Button type="submit" class="btn btn-primary btn-sm">Filter</Button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
         <!-- Content Page -->
-        <!-- multi-column ordering -->
+        <!-- 
         <div class="row ml-auto">
             <div class="col-lg-6">
                 <div class="row">
@@ -46,7 +60,7 @@
         </div>
 
 
-        <!-- Start First Cards -->
+       -->
         <!-- *************************************************************** -->
         <div class="card-group">
             <div class="card border-right">

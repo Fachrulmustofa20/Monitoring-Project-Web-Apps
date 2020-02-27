@@ -17,6 +17,12 @@ class Home extends CI_Controller
 
             $data['tampil'] = $this->project->cari()->result_array();
         }
+
+        if ($this->input->post('tgl')) {
+
+            $data['tampil'] = $this->project->tanggal()->result_array();
+        }
+
         $data['user'] = $this->db->get_where('user', [
             'email' => $this->session->userdata('email')
         ])->row_array();
@@ -46,6 +52,12 @@ class Home extends CI_Controller
             'email' => $this->session->userdata('email')
         ])->row_array();
 
+        if ($this->input->post('tgl')) {
+
+            $data['tampil'] = $this->project->tanggal_presale()->result_array();
+        }
+
+
         $data['totalAll'] = $this->project->totalAll();
         $data['totalPresale'] = $this->project->totalPresale();
         $data['totalWorkorder'] = $this->project->totalWorkorder();
@@ -65,6 +77,12 @@ class Home extends CI_Controller
             'email' => $this->session->userdata('email')
         ])->row_array();
 
+        if ($this->input->post('tgl')) {
+
+            $data['tampil'] = $this->project->tanggal()->result_array();
+        }
+
+
         $data['totalAll'] = $this->project->totalAll();
         $data['totalPresale'] = $this->project->totalPresale();
         $data['totalWorkorder'] = $this->project->totalWorkorder();
@@ -83,6 +101,10 @@ class Home extends CI_Controller
         if ($this->input->post('keyword')) {
 
             $data['tampil'] = $this->project->cari()->result_array();
+        }
+        if ($this->input->post('tgl')) {
+
+            $data['tampil'] = $this->project->tanggal()->result_array();
         }
 
         $data['user'] = $this->db->get_where('user', [
