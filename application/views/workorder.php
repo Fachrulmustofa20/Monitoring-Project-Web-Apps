@@ -30,19 +30,7 @@
     <!-- ============================================================== -->
     <div class="container-fluid">
 
-        <div class="row">
-            <div class="col-md-4">
 
-                <form action="" method="post">
-                    <div class="form-group">
-                        <label>Tanggal</label>
-                        <input type="text" class="form-control-sm" id="tgl" name="tgl">
-                        <Button type="submit" class="btn btn-primary btn-sm">Filter</Button>
-                    </div>
-                </form>
-
-            </div>
-        </div>
         <!-- Content Page -->
         <!-- 
         <div class="row ml-auto">

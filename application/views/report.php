@@ -29,19 +29,7 @@
     <!-- ============================================================== -->
     <div class="container-fluid">
 
-        <div class="row">
-            <div class="col-md-4">
 
-                <form action="" method="post">
-                    <div class="form-group">
-                        <label>Tanggal</label>
-                        <input type="text" class="form-control-sm" id="tgl" name="tgl">
-                        <Button type="submit" class="btn btn-primary btn-sm">Filter</Button>
-                    </div>
-                </form>
-
-            </div>
-        </div>
         <!-- 
         <div class="row ml-auto">
             <div class="col-lg-6">
@@ -68,16 +56,7 @@
                             <div class="col-md-9 col-6">
                                 <h4 class="card-title">Presale And Workorder Table</h4>
                                 <!--Dropdown category-->
-                                <form action="" method="POST">
-                                    <div class="form-group">
-                                        <select name="keyword" id="keyword" class="form-control-sm">
-                                            <option value="0">Category</option>
-                                            <option value="Presale">Presale</option>
-                                            <option value="Workorder">Workorder</option>
-                                        </select>
-                                        <Button type="submit" class="btn btn-primary btn-sm">Cari</Button>
-                                    </div>
-                                </form>
+
                                 <!--End dropdown category-->
                             </div>
                             <div class="col-md-3 col-6">
