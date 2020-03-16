@@ -148,16 +148,29 @@ class User_Management extends CI_Controller
     public function edit()
     {
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
-        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]', [
-            'min_length' => 'password too short!'
-        ]);
 
         if ($this->form_validation->run() == false) {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Update Users Failed!</div>');
             redirect('user_management');
         } else {
-
-            $this->user_model->edit_user();
+            $id = $this->input->post('id');
+            //jika password kosong maka tidak di ganti passwordnya
+            if (strlen($this->input->post('password1')) == 0) {
+                $data = [
+                    'name'          => htmlspecialchars($this->input->post('name', true)),
+                    'role_id'       => $this->input->post('role')
+                ];
+            } else if (strlen($this->input->post('password1')) > 7) { //jika password lebih dari 7 maka password di ganti
+                $data = [
+                    'name'          => htmlspecialchars($this->input->post('name', true)),
+                    'password'      => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+                    'role_id'       => $this->input->post('role')
+                ];
+            } else { //jika tidak
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Edit User Failed! Password too Short</div>');
+                redirect('user_management');
+            }
+            $this->user_model->edit_user($id, $data);
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Success Edit User!</div>');
             redirect('user_management');

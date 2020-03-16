@@ -116,7 +116,8 @@
 
                                                         <div class="form-group">
                                                             <label for="password">Password</label>
-                                                            <input class="form-control" type="password" id="password1" name="password1" placeholder="Enter your password" value="<?= $u['password']; ?>" required>
+                                                            <input class="form-control" type="password" id="password1" name="password1" placeholder="Enter your password">
+                                                            <small class="text-danger pl-3">Input min 8 character to change password</small>
                                                         </div>
 
                                                         <div class="form-group">

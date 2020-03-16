@@ -29,16 +29,8 @@ class User_Model extends CI_Model
         return $this->db->get_where('user', ['id' => $id])->row_array();
     }
 
-    public function edit_user()
+    public function edit_user($id, $data)
     {
-        $id = $this->input->post('id');
-        $data = [
-            'name'          => htmlspecialchars($this->input->post('name', true)),
-            'email'         => htmlspecialchars($this->input->post('email', true)),
-            'password'      => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-            'role_id'       => $this->input->post('role')
-        ];
-
         $this->db->where('id', $id);
         $this->db->update('user', $data);
     }
