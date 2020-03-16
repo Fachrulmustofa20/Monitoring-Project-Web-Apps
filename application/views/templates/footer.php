@@ -25,6 +25,32 @@
 <script src="<?= base_url('assets/'); ?>vendor/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?= base_url('assets/'); ?>dist/js/pages/datatable/datatable-basic.init.js"></script>
 
+<!-- Search -->
+<script type="text/javascript">
+    /* Custom filtering function which will search data in column four between two values */
+    $.fn.dataTable.ext.search.push(
+        function(settings, data, dataIndex) {
+            var min = $('#min').val();
+            var max = $('#max').val();
+            var age = (data[4]) || 0; // use data for the age column
+
+            if ((isNaN(min) && isNaN(max)) || (isNaN(min) && age <= max) || (min <= age && isNaN(max)) || (min <= age && age <= max)) {
+                return true;
+            }
+            return false;
+        }
+    );
+
+    $(document).ready(function() {
+        var table = $('#multi_col_order').DataTable();
+
+        // Event listener to the two range filtering inputs to redraw on input
+        $('#min, #max').keyup(function() {
+            table.draw();
+        });
+    });
+</script>
+
 <!--Date Picker-->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>

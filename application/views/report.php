@@ -66,7 +66,20 @@
                         </div>
 
                         <div class="table-responsive">
+                            <table border="0" cellspacing="5" cellpadding="5">
+                                <tbody>
+                                    <tr>
+                                        <td>Minimum age:</td>
+                                        <td><input type="text" id="min" name="min"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Maximum age:</td>
+                                        <td><input type="text" id="max" name="max"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                             <table id="multi_col_order" class="table table-striped table-bordered display no-wrap" style="width:100%">
+
                                 <thead class="bg-primary text-white">
                                     <tr>
                                         <th>No</th>
@@ -77,6 +90,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+
                                     <?php
                                     $no = 1;
                                     foreach ($tampil as $t) :
