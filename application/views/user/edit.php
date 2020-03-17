@@ -39,7 +39,7 @@
                     <div class="card-body">
                         <center class="m-t-30"> <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" alt="image" class="rounded-circle" width="150">
                             <h4 class="card-title mt-3"><?= $user['name']; ?></h4>
-                            <h5 class="card-subtitle"><?= $user['role_id'] == 1 ? "Admin" : "User"; ?></h5>
+                            <h5 class="card-subtitle"><?= $user['role_id'] == 1 ? "Admin" : "Viewer"; ?></h5>
                             <div class="row text-center justify-content-md-center">
                                 <div class="col-12">Create Account :</div>
                             </div>
