@@ -267,11 +267,11 @@ COPY public.tb_project (id_project, created_at, name, analyst, category) FROM st
 --
 
 COPY public."user" (id, name, email, image, password, role_id, is_active, date_created) FROM stdin;
-3	Endris	endris.ardiansyah99@gmail.com	default.png	$2y$10$.vflTXVd9imRlSAY81UfP.c2D4ysoPLZ59YzPdCvkX6PSLdNMAcry	2	0	1581500510
-6	Bambang Sugiarto	bambangsugiarto200316@gmail.com	default.png	$2y$10$.KvzH3WpfZGNG0cAME.yTOnNXS/eRJZ9sKWN1sQ3pLZ6L3bjmBf.2	2	0	1581582216
-1	Fachrul Mustofa	fachrulmustofa100@gmail.com	anxiety.png	$2y$10$bC7fJgANxmLD/u2E4eeAZ./z6v14iQS3DBCDcxRWNYMoGIUxyPR.q	1	1	1581499816
-9	Fachrul Keren	fachrulmustofa200@gmail.com	default.png	$2y$10$mohgazmOOXW6.MR1/3cy5e/kPzLjlUgWPh1njk6xW6GEdTQoTvGRG	2	1	1582190898
-10	Bambang Sugiarto	fachrulmustofa300@gmail.com	default.png	$2y$10$4/IwX4sA8SmhFCXUJjdlG.qM08cv1BkJhgsx8aOLwMrAqBEaMsp5C	2	1	1582254431
+3	Endris	endris.ardiansyah@gmail.com	default.png	$2y$10$.vflTXVd9imRlSAY81UfP.c2D4ysoPLZ59YzPdCvkX6PSLdNMAcry	2	0	1581500510
+6	Bambang Sugiarto	bambangsugiarto@gmail.com	default.png	$2y$10$.KvzH3WpfZGNG0cAME.yTOnNXS/eRJZ9sKWN1sQ3pLZ6L3bjmBf.2	2	0	1581582216
+1	Fachrul Mustofa	fachrulmustofa1@gmail.com	anxiety.png	$2y$10$bC7fJgANxmLD/u2E4eeAZ./z6v14iQS3DBCDcxRWNYMoGIUxyPR.q	1	1	1581499816
+9	Fachrul Keren	fachrulmustofa2@gmail.com	default.png	$2y$10$mohgazmOOXW6.MR1/3cy5e/kPzLjlUgWPh1njk6xW6GEdTQoTvGRG	2	1	1582190898
+10	Bambang Sugiarto	fachrulmustofa3@gmail.com	default.png	$2y$10$4/IwX4sA8SmhFCXUJjdlG.qM08cv1BkJhgsx8aOLwMrAqBEaMsp5C	2	1	1582254431
 \.
 
 
